@@ -2,6 +2,7 @@ import type { FC } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   DsImage,
+  DsOtp,
   DsRemixIcon,
   DsStack,
   DsToggle,
@@ -22,15 +23,16 @@ const HomePage: FC = () => {
     dispatch(setThemeSchemeAction(newScheme))
   }
 
+  const handleOnComplete = (value: string) => {
+    console.log('Entered OTP: ', value)
+  }
+
   return (
     <DsStack
       justifyContent={'center'}
       alignItems={'center'}
       direction={'column'}
       height={'var(--100vh)'}
-      sx={{
-        px: 'var(--ds-spacing-warm)'
-      }}
     >
       <DsImage
         srcSet={HOME_IMAGE}
@@ -51,6 +53,10 @@ const HomePage: FC = () => {
           onChange={handleSchemeChange}
         />
         <DsRemixIcon className='ri-contrast-2-line' />
+      </DsStack>
+
+      <DsStack m='var(--ds-spacing-bitterCold)'>
+        <DsOtp onComplete={handleOnComplete} size='small' />
       </DsStack>
     </DsStack>
   )
