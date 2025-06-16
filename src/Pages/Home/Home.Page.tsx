@@ -56,7 +56,7 @@ const HomePage: FC = () => {
       </DsStack>
 
       <DsStack m='var(--ds-spacing-bitterCold)'>
-        <DsOtp onComplete={handleOnComplete} size='small' />
+        <DsOtp onComplete={handleOnComplete} size='small' type='password' />
       </DsStack>
     </DsStack>
   )
